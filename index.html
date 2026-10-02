@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RutaYa - Selección de Butacas y Pasajes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="system-wrapper">
+    <!-- STEPPER HEADER -->
+    <header class="stepper-header">
+      <div class="step-tab" id="tabStep1">
+        <span class="step-number">1</span>
+        <span class="step-label">Selección de servicio</span>
+      </div>
+      <div class="step-tab active" id="tabStep2">
+        <span class="step-number">2</span>
+        <span class="step-label">Carga de pasajeros</span>
+      </div>
+      <div class="step-tab" id="tabStep3">
+        <span class="step-number">3</span>
+        <span class="step-label">Confirmación y pago</span>
+      </div>
+    </header>
+
+    <!-- ITINERARY INFO BAR -->
+    <section class="trip-bar">
+      <div class="trip-title">
+        <span class="trip-type">Ida</span>
+        <span class="trip-arrow">➜</span>
+        <div class="trip-route">
+          <strong id="dispOrigin">Mendoza (Terminal)</strong> <span class="loc-tag">( MENDOZA - MENDOZA )</span>
+          <br>
+          <strong id="dispDestination">Retiro (Terminal) Buenos Aires</strong> <span class="loc-tag">( CAPITAL FEDERAL - CAPITAL FEDERAL )</span>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table class="services-table">
+          <thead>
+            <tr>
+              <th>EMPRESA</th>
+              <th>SALIDA</th>
+              <th>LLEGADA</th>
+              <th>DURACIÓN</th>
+              <th>COMODIDAD</th>
+              <th>DISP</th>
+              <th>$ (ARS)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>CATA Internacional</strong><br><small style="color:#666;">(Operado por RutaYa)</small></td>
+              <td><span id="dispSalidaFecha">Jue 23 oct</span><br><strong>19:30 hs</strong></td>
+              <td><span id="dispLlegadaFecha">Vie 24 oct</span><br><strong>08:15 hs</strong></td>
+              <td>12:45 hs.</td>
+              <td>
+                <div class="cat-row"><span class="dot red"></span> Cama Ejecutivo</div>
+                <div class="cat-row"><span class="dot green"></span> Promo Royal Suite</div>
+                <div class="cat-row"><span class="dot black"></span> Royal Suite</div>
+              </td>
+              <td>
+                <div>4</div>
+                <div style="font-weight:700; color:#16a34a;">2</div>
+                <div>2</div>
+              </td>
+              <td>
+                <div>$ 815.0</div>
+                <div style="font-weight:700; color:#16a34a;">$ 945.0</div>
+                <div>$ 945.0</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- MAIN INTERACTIVE BUS AREA -->
+    <main class="booking-layout">
+      <!-- BUS SCHEMATICS CONTAINER -->
+      <div class="bus-area">
+        <div class="deck-container">
+          
+          <!-- PRIMER PISO (UPPER DECK) -->
+          <div class="bus-deck-wrapper">
+            <h3 class="deck-title">Primer Piso</h3>
+            <div class="bus-chassis">
+              <!-- Left Wheels -->
+              <div class="wheel left-front"></div>
+              <div class="wheel left-rear1"></div>
+              <div class="wheel left-rear2"></div>
+
+              <!-- Right Wheels -->
+              <div class="wheel right-front"></div>
+              <div class="wheel right-rear1"></div>
+              <div class="wheel right-rear2"></div>
+
+              <div class="deck-interior" id="upperDeckGrid">
+                <!-- Generado dinámicamente: Butacas del 1 al 20 -->
+              </div>
+            </div>
+          </div>
+
+          <!-- PLANTA BAJA (LOWER DECK) -->
+          <div class="bus-deck-wrapper">
+            <h3 class="deck-title">Planta Baja</h3>
+            <div class="bus-chassis">
+              <!-- Left Wheels -->
+              <div class="wheel left-front"></div>
+              <div class="wheel left-rear1"></div>
+              <div class="wheel left-rear2"></div>
+
+              <!-- Right Wheels -->
+              <div class="wheel right-front"></div>
+              <div class="wheel right-rear1"></div>
+              <div class="wheel right-rear2"></div>
+
+              <div class="driver-cabin">
+                <div class="steering-wheel" title="Cabina del Conductor">
+                  <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                    <circle cx="12" cy="12" r="9"/>
+                    <circle cx="12" cy="12" r="3"/>
+                    <path d="M12 3v6M12 15v6M3 12h6M15 12h6"/>
+                  </svg>
+                </div>
+                <div class="cabin-label">Conductor</div>
+              </div>
+
+              <div class="deck-interior" id="lowerDeckGrid">
+                <!-- Generado dinámicamente: Escalera + Butacas 21 al 26 -->
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- COLOR LEGEND -->
+        <div class="bus-legend">
+          <div class="legend-item">
+            <div class="legend-box red"></div>
+            <span>Cama Ejecutivo ($815)</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-box green"></div>
+            <span>Promo Royal Suite ($945)</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-box black"></div>
+            <span>Royal Suite ($945)</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-box selected"></div>
+            <span>Seleccionado</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-box occupied"></div>
+            <span>Ocupado</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEAT SELECTION & PASSENGER FORM PANEL -->
+      <aside class="selection-panel">
+        <div class="panel-box">
+          <div class="panel-instructions">
+            <strong>Seleccione su butaca</strong> e ingrese el <strong>DNI</strong> (8 dígitos) para consultar <strong>RENIEC</strong> automáticamente.
+          </div>
+
+          <div class="passengers-table-wrapper">
+            <table class="passengers-table" id="passengersTable">
+              <thead>
+                <tr>
+                  <th style="width: 40px;">Nro</th>
+                  <th style="width: 125px;">DNI (RENIEC)</th>
+                  <th>Nombre y Apellido</th>
+                  <th style="width: 75px;">Servicio</th>
+                  <th style="width: 35px;">Elim</th>
+                  <th style="width: 65px;">$</th>
+                </tr>
+              </thead>
+              <tbody id="passengerListBody">
+                <tr id="emptySeatsRow">
+                  <td colspan="6" style="text-align:center; padding: 25px 10px; color:#888;">
+                    👆 <em>Haga clic en una butaca del bus para agregarla a su reserva.</em>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- TOTAL BAR (Red banner identical to image) -->
+          <div class="total-bar">
+            <span class="total-label">Total:</span>
+            <span class="total-amount" id="totalAmountDisplay">$0</span>
+          </div>
+
+          <div class="action-buttons">
+            <button class="btn-proceed" id="btnProceedToPay">
+              Continuar al Pago y Confirmación ➔
+            </button>
+          </div>
+        </div>
+
+        <!-- BOT CHAT INTEGRATED ACCORDION -->
+        <div class="assistant-mini-card">
+          <div class="assistant-header">
+            <span class="bot-badge">🤖 Asistente RutaYa</span>
+            <span class="bot-status">En línea</span>
+          </div>
+          <div class="assistant-body" id="botGuidance">
+            👋 Hola, he cargado el plano interactivo de asientos exactamente como en el sistema de pasajes. Haz clic en las butacas verdes o rojas para reservarlas.
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <!-- MODAL DE CONFIRMACIÓN Y PAGO (Paso 3) -->
+    <div class="modal-overlay" id="paymentModal">
+      <div class="modal-card">
+        <div class="modal-header">
+          <h3>Paso 3: Confirmación y Pago</h3>
+          <button class="btn-close" id="btnCloseModal">✕</button>
+        </div>
+        <div class="modal-body" id="modalPaymentContent">
+          <!-- Dinámico -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
