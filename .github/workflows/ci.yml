@@ -1,0 +1,21 @@
+name: Mi primer CI
+
+on: 
+  push:
+    branches:
+        -main
+jobs:
+  verificar:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Descargar codigo
+          uses: actions/checkount@v4
+          
+        - name: Verificar index.html
+          run: test -f -index.html
+          
+        - name: Verificar etiqueta HTML
+          run: grep -q "<html>" index.html
+
+        - name: Verificar título
+          run: grep -q "<h1>" index.html
